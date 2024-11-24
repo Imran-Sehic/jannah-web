@@ -13,7 +13,7 @@ export default function QRGenerator({
   useEffect(() => {
     QRCode.toDataURL(url)
       .then((url: string) => setQrCodeUrl(url))
-      .catch((err: any) => console.error(err));
+      .catch((err: string) => console.error(err));
   }, []);
 
   return (
