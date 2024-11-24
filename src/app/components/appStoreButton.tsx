@@ -1,7 +1,7 @@
 import Image from "next/image";
 import QRGenerator from "./qrGenerator";
 
-export default function AppStoreButton() {
+export default function AppStoreButton({ text }: Readonly<{ text: string }>) {
   return (
     <div className="flex gap-2 items-center">
       <a
@@ -16,7 +16,7 @@ export default function AppStoreButton() {
             height={40}
           />
           <div className="text-white">
-            <p>Get it on</p>
+            <p>{text}</p>
             <p className="font-bold text-xl">App Store</p>
           </div>
         </div>
