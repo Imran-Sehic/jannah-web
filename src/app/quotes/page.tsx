@@ -22,6 +22,7 @@ export default async function Quotes() {
       style={{
         backgroundImage: "url('/background.png')",
         backgroundAttachment: "fixed",
+        backgroundColor: "black",
       }}
     >
       <Link href={"/"}>
@@ -35,15 +36,15 @@ export default async function Quotes() {
         />
       </Link>
       <div className="flex flex-col gap-20 my-20">
-        {data.map((quote, index) => (
+        {data.map((quote) => (
           <>
-            <div className="flex flex-col items-center text-center">
-              <p className="text-xl italic font-semibold">{`"${quote.quote}"`}</p>
-              <p>{quote.author}</p>
+            <div className="relative text-center bg-gray-100 text-gray-800 rounded-lg shadow-md max-w-2xl">
+              <p className="text-xl italic p-4">{`"${quote.quote}"`}</p>
+              <p className="bg-slate-200 p-4 py-2 font-semibold rounded-b-lg">
+                {quote.author}
+              </p>
+              <div className="absolute bottom-[-15px] left-[50%] translate-x-[-50%] w-0 h-0 border-t-slate-200 border-t-[15px] border-l-transparent border-l-[15px] border-r-transparent border-r-[15px]" />
             </div>
-            {index != quotes.length - 1 && (
-              <div className="w-full h-2 bg-gradient-to-r from-transparent via-white to-transparent" />
-            )}
           </>
         ))}
       </div>

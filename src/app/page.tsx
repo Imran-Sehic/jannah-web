@@ -46,6 +46,7 @@ export default async function Home() {
         style={{
           backgroundImage: "url('/background.png')",
           backgroundAttachment: "fixed",
+          backgroundColor: "black",
         }}
       >
         <Link href={"/"}>
@@ -85,12 +86,12 @@ export default async function Home() {
               Jannah
             </span>
           </p>
-          <p className="text-[20px] sm:text-[25px] text-slate-600 font-semibold">
+          <p className="text-[20px] sm:text-[25px] text-slate-300 font-semibold">
             {content?.subheader}
           </p>
         </div>
         <div className="mt-10">
-          <p className="text-center">{content?.downloadText}</p>
+          <p className="text-center text-white">{content?.downloadText}</p>
           <div className="flex flex-col items-center gap-5 mt-4">
             <PlayStoreButton text={content?.buttonText || ""} />
             <div className="w-full h-2 bg-gradient-to-r from-transparent via-white to-transparent" />
@@ -107,7 +108,7 @@ export default async function Home() {
           </Link>
         </p>
       </div>
-      <footer className="flex justify-center gap-10 bg-slate-100 px-[20%] py-10">
+      <footer className="flex justify-center gap-10 bg-gray-200 px-[20%] py-10">
         <a href="https://www.facebook.com/islamske.slike" target="_blank_">
           <FaFacebook className="text-blue-500" size={30} />
         </a>

@@ -22,7 +22,7 @@ export default function AppStoreButton({ text }: Readonly<{ text: string }>) {
           </div>
         </div>
       </a>
-      <p>OR</p>
+      <p className="text-white">OR</p>
       <QRGenerator
         url="https://apps.apple.com/us/app/jannah-prayer-times/id6503667491"
         altText="Jannah - iOS"

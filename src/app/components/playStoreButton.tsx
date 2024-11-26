@@ -22,7 +22,7 @@ export default function PlayStoreButton({ text }: Readonly<{ text: string }>) {
           </div>
         </div>
       </a>
-      <p>OR</p>
+      <p className="text-white">OR</p>
       <QRGenerator
         url="https://play.google.com/store/apps/details?id=com.jannahadhan.adhan"
         altText="Jannah - Android"
