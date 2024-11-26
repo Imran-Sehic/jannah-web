@@ -8,12 +8,7 @@ import PlayStoreButton from "./components/playStoreButton";
 
 export default async function Home() {
   const requestHeaders = headers();
-  const ip = (await requestHeaders).get("x-forwarded-for") || "8.8.8.8";
-
-  const geoResponse = await fetch(`https://ipapi.co/${ip}/json/`);
-  const geoData = await geoResponse.json();
-
-  const country = geoData.country || "Unknown";
+  const country = (await requestHeaders).get("x-detected-country") || "Unknown";
 
   const pageContentMap = new Map([
     [
