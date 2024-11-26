@@ -38,7 +38,7 @@ export default async function Quotes() {
           height={100}
         />
       </Link>
-      <div className="flex flex-col gap-10 my-20">
+      <div className="flex flex-col gap-20 my-20">
         {data.map((quote, index) => (
           <>
             <div className="flex flex-col items-center text-center">
