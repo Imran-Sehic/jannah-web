@@ -60,6 +60,7 @@ export default async function Home() {
             alt="Jannah logo"
             width={100}
             height={100}
+            priority
           />
         </Link>
         <div className="flex flex-col text-center items-center">

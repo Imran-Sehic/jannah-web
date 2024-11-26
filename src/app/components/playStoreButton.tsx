@@ -14,6 +14,7 @@ export default function PlayStoreButton({ text }: Readonly<{ text: string }>) {
             alt="Google Play Icon"
             width={40}
             height={40}
+            priority
           />
           <div className="text-white">
             <p>{text}</p>

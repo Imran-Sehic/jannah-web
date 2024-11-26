@@ -14,6 +14,7 @@ export default function AppStoreButton({ text }: Readonly<{ text: string }>) {
             alt="App Store Icon"
             width={40}
             height={40}
+            priority
           />
           <div className="text-white">
             <p>{text}</p>

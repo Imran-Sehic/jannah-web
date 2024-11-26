@@ -36,6 +36,7 @@ export default async function Quotes() {
           alt="Jannah logo"
           width={100}
           height={100}
+          priority
         />
       </Link>
       <div className="flex flex-col gap-20 my-20">
