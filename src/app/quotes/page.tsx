@@ -38,12 +38,12 @@ export default async function Quotes() {
       <div className="flex flex-col gap-20 my-20">
         {data.map((quote) => (
           <>
-            <div className="relative text-center bg-gray-100 text-gray-800 rounded-lg shadow-md max-w-2xl">
+            <div className="relative text-center bg-gray-300 text-gray-800 rounded-lg shadow-md max-w-2xl">
               <p className="text-xl italic p-4">{`"${quote.quote}"`}</p>
-              <p className="bg-slate-200 p-4 py-2 font-semibold rounded-b-lg">
+              <p className="bg-slate-400 p-4 py-2 font-semibold rounded-b-lg">
                 {quote.author}
               </p>
-              <div className="absolute bottom-[-15px] left-[50%] translate-x-[-50%] w-0 h-0 border-t-slate-200 border-t-[15px] border-l-transparent border-l-[15px] border-r-transparent border-r-[15px]" />
+              <div className="absolute bottom-[-15px] left-[50%] translate-x-[-50%] w-0 h-0 border-t-slate-400 border-t-[15px] border-l-transparent border-l-[15px] border-r-transparent border-r-[15px]" />
             </div>
           </>
         ))}

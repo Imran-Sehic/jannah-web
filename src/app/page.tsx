@@ -108,7 +108,7 @@ export default async function Home() {
           </Link>
         </p>
       </div>
-      <footer className="flex justify-center gap-10 bg-gray-200 px-[20%] py-10">
+      <footer className="flex justify-center gap-10 bg-gray-600 px-[20%] py-10">
         <a href="https://www.facebook.com/islamske.slike" target="_blank_">
           <FaFacebook className="text-blue-500" size={30} />
         </a>
