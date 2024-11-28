@@ -16,7 +16,7 @@ export default function AppStoreButton({ text }: Readonly<{ text: string }>) {
             height={40}
             priority
           />
-          <div className="text-white">
+          <div className="text-white text-left">
             <p>{text}</p>
             <p className="font-bold text-xl">App Store</p>
           </div>
