@@ -17,13 +17,22 @@ export default async function Home() {
   return (
     <div className="grid grid-rows-[auto_100px] h-full font-[family-name:var(--font-montserrat)]">
       <div
-        className="w-full flex flex-col gap-5 px-[5%] sm:px-[20%] py-10 items-center relative bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/background.png')",
-          backgroundAttachment: "fixed",
-          backgroundColor: "black",
-        }}
+        className="relative w-full flex flex-col gap-5 px-[5%] sm:px-[20%] py-10 items-center relative bg-cover bg-center"
+        // style={{
+        //   backgroundImage: "url('/background.webp')",
+        //   backgroundAttachment: "fixed",
+        //   backgroundColor: "black",
+        // }}
       >
+        <Image
+          className="absolute w-full h-full bg-black top-0 right-0 -z-10"
+          src="/background.webp"
+          alt="Jannah logo"
+          layout="fill"
+          objectFit="cover"
+          priority
+          quality={90}
+        />
         <Link href={"/"}>
           <Image
             className="dark:invert"

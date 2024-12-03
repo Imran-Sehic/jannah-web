@@ -41,13 +41,22 @@ export default async function Quotes() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
         />
       </Head>
+      <Image
+        className="fixed w-full h-full bg-black top-0 right-0 -z-10"
+        src="/background.webp"
+        alt="Jannah logo"
+        layout="fill"
+        objectFit="cover"
+        priority
+        quality={90}
+      />
       <div
-        className="w-full overflow-auto flex flex-col gap-5 px-[5%] sm:px-[10%] xl:px-[15%] py-10 items-center relative bg-cover bg-center h-full font-[family-name:var(--font-montserrat)]"
-        style={{
-          backgroundImage: "url('/background.png')",
-          backgroundAttachment: "fixed",
-          backgroundColor: "black",
-        }}
+        className="relative w-full overflow-auto flex flex-col gap-5 px-[5%] sm:px-[10%] xl:px-[15%] py-10 items-center relative bg-cover bg-center h-full font-[family-name:var(--font-montserrat)]"
+        // style={{
+        //   backgroundImage: "url('/background.png')",
+        //   backgroundAttachment: "fixed",
+        //   backgroundColor: "black",
+        // }}
       >
         <Link href={"/"}>
           <Image
