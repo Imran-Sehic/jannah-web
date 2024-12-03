@@ -14,7 +14,7 @@ export default function QRGenerator({
     QRCode.toDataURL(url)
       .then((url: string) => setQrCodeUrl(url))
       .catch((err: string) => console.error(err));
-  }, []);
+  }, [url]);
 
   return (
     <div>
