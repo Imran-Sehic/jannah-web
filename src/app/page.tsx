@@ -7,8 +7,8 @@ import AppStoreButton from "./components/appStoreButton";
 import PlayStoreButton from "./components/playStoreButton";
 
 export default async function Home() {
-  const requestHeaders = headers();
-  const country = (await requestHeaders).get("x-detected-country") || "Unknown";
+  const requestHeaders = await headers();
+  const country = requestHeaders.get("x-detected-country") || "Unknown";
 
   const content = balkanCountries.includes(country)
     ? pageContentMap.get("local")

@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Quotes() {
-  const requestHeaders = headers();
-  const country = (await requestHeaders).get("x-detected-country") || "Unknown";
+  const requestHeaders = await headers();
+  const country = requestHeaders.get("x-detected-country") || "Unknown";
 
   const data = balkanCountries.includes(country) ? citati : quotes;
 
