@@ -1,7 +1,6 @@
 import { citati, quotes } from "@/data/quotes";
 import { balkanCountries } from "@/utils";
 import { Metadata } from "next";
-import Head from "next/head";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
@@ -22,7 +21,7 @@ export default async function Quotes() {
 
   const jsonLdData = {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": "Quotes",
     name: "Quotes Collection",
     description: metadata.description,
     author: "Jannah",
@@ -35,12 +34,10 @@ export default async function Quotes() {
 
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        />
-      </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
       <Image
         className="fixed w-full h-full bg-black top-0 right-0 -z-10"
         src="/background.webp"
@@ -50,14 +47,7 @@ export default async function Quotes() {
         priority
         quality={90}
       />
-      <div
-        className="relative w-full overflow-auto flex flex-col gap-5 px-[5%] sm:px-[10%] xl:px-[15%] py-10 items-center relative bg-cover bg-center h-full font-[family-name:var(--font-montserrat)]"
-        // style={{
-        //   backgroundImage: "url('/background.png')",
-        //   backgroundAttachment: "fixed",
-        //   backgroundColor: "black",
-        // }}
-      >
+      <div className="relative w-full overflow-auto flex flex-col gap-5 px-[5%] sm:px-[10%] xl:px-[15%] py-10 items-center relative bg-cover bg-center h-full font-[family-name:var(--font-montserrat)]">
         <Link href={"/"}>
           <Image
             className="dark:invert"
