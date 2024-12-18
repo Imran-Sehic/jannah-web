@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import CopyButton from "../components/copyButton";
 import Popup from "./components/popup";
 
 export const metadata: Metadata = {
@@ -18,6 +19,12 @@ export default async function Quotes() {
   const data = balkanCountries.includes(country) ? citati : quotes;
 
   const buttonText = balkanCountries.includes(country) ? "Preuzmi" : "Download";
+  const copyButtonText = balkanCountries.includes(country) ? "Kopiraj" : "Copy";
+
+  const protocol = requestHeaders.get("x-forwarded-proto") || "http";
+  const host = requestHeaders.get("host");
+
+  const fullUrl = `${protocol}://${host}/quotes`;
 
   const jsonLdData = {
     "@context": "https://schema.org",
@@ -25,10 +32,11 @@ export default async function Quotes() {
     name: "Quotes Collection",
     description: metadata.description,
     author: "Jannah",
-    mainEntity: data.map((quote) => ({
+    mainEntity: data.map((quote, index) => ({
       "@type": "Quotation",
       text: quote.quote,
       author: quote.author,
+      url: `${fullUrl}#quote-${index}`,
     })),
   };
 
@@ -59,16 +67,8 @@ export default async function Quotes() {
           />
         </Link>
         <div className="grid grid-cols[1fr] sm:grid-cols-[1fr_1fr] 2xl:grid-cols-[1fr_1fr_1fr] gap-20 my-20">
-          {data.map((quote) => (
-            <>
-              <div className="relative flex flex-col text-center bg-gray-300 text-gray-800 rounded-lg shadow-md max-w-2xl">
-                <p className="text-xl italic p-4 flex-1">{`"${quote.quote}"`}</p>
-                <p className="bg-slate-400 p-4 py-2 font-semibold rounded-b-lg">
-                  {quote.author}
-                </p>
-                <div className="absolute bottom-[-15px] left-[50%] translate-x-[-50%] w-0 h-0 border-t-slate-400 border-t-[15px] border-l-transparent border-l-[15px] border-r-transparent border-r-[15px]" />
-              </div>
-            </>
+          {data.map((quote, index) => (
+            <CopyButton quote={quote} index={index} text={copyButtonText} />
           ))}
         </div>
       </div>

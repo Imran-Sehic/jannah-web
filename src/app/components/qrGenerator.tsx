@@ -18,7 +18,7 @@ export default function QRGenerator({
 
   return (
     <div>
-      <Image src={qrCodeUrl} alt={altText} width={70} height={70} />
+      <Image src={qrCodeUrl || ""} alt={altText} width={70} height={70} />
     </div>
   );
 }
