@@ -68,7 +68,12 @@ export default async function Quotes() {
         </Link>
         <div className="grid grid-cols[1fr] sm:grid-cols-[1fr_1fr] 2xl:grid-cols-[1fr_1fr_1fr] gap-20 my-20">
           {data.map((quote, index) => (
-            <CopyButton quote={quote} index={index} text={copyButtonText} />
+            <CopyButton
+              quote={quote}
+              index={index}
+              text={copyButtonText}
+              key={index}
+            />
           ))}
         </div>
       </div>

@@ -52,7 +52,6 @@ export default function CopyButton({
       }`}
       href={`#${index}`}
       id={`quote-${index}`}
-      key={index}
     >
       <p className="text-xl italic p-4 flex-1">{`"${quote.quote}"`}</p>
       <div className="bg-slate-400 p-4 py-2 flex items-center justify-center font-semibold rounded-b-lg">
