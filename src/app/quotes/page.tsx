@@ -28,14 +28,20 @@ export default async function Quotes() {
 
   const jsonLdData = {
     "@context": "https://schema.org",
-    "@type": "Quotes",
+    "@type": "CreativeWork",
     name: "Quotes Collection",
     description: metadata.description,
-    author: "Jannah",
-    mainEntity: data.map((quote, index) => ({
+    author: {
+      "@type": "WebSite",
+      name: "Jannah",
+    },
+    hasPart: data.map((quote, index) => ({
       "@type": "Quotation",
       text: quote.quote,
-      author: quote.author,
+      author: {
+        "@type": "Person",
+        name: quote.author,
+      },
       url: `${fullUrl}#quote-${index}`,
     })),
   };
