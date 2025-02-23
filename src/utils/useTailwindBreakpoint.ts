@@ -17,20 +17,21 @@ function useTailwindBreakpoint() {
     }
   };
 
-  const [screenSize, setScreenSize] = useState(
-    getDeviceConfig(window.innerWidth)
-  );
+  const [screenSize, setScreenSize] = useState<string | undefined>("xl");
 
   useEffect(() => {
-    const handleResize = () => {
+    if (typeof window !== "undefined") {
       setScreenSize(getDeviceConfig(window.innerWidth));
-    };
 
-    window.addEventListener("resize", handleResize);
+      const handleResize = () => {
+        setScreenSize(getDeviceConfig(window.innerWidth));
+      };
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   return screenSize;

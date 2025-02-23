@@ -13,40 +13,49 @@ export default function CopyButton({
   index: number;
 }>) {
   const [hoverIndex, setHoverIndex] = useState<number | undefined>(undefined);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(
-        `${window.location.href.split("#")[0]}#quote-${index}`
-      );
+      if (typeof window !== "undefined") {
+        await navigator.clipboard.writeText(
+          `${window.location.href.split("#")[0]}#quote-${index}`
+        );
+      }
     } catch (error) {
       console.error("Failed to copy text: ", error);
     }
   };
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      const handleHashChange = () => {
+        const hash = window.location.hash;
+        if (hash) {
+          const element = document.querySelector(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
         }
-      }
-    };
+      };
 
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
+      handleHashChange();
+      window.addEventListener("hashchange", handleHashChange);
 
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
+      return () => {
+        window.removeEventListener("hashchange", handleHashChange);
+      };
+    }
   }, []);
 
   return (
     <a
       className={`relative flex cursor-default pointer-events-none flex-col text-center bg-gray-300 text-gray-800 rounded-lg shadow-md max-w-2xl ${
-        window.location.hash == `#quote-${index}`
+        isClient && window.location.hash == `#quote-${index}`
           ? "shadow-[0_0_20px_20px_rgba(255,255,255,1)]"
           : ""
       }`}
